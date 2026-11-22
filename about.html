@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101126">
+  <meta name="description" content="About LogoRemakeFour and its GitHub repository.">
+  <title>About | LogoRemakeFour</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #101126;
+      --surface: #191a35;
+      --text: #f7f5ff;
+      --muted: #c3c0d8;
+      --accent: #aa85ff;
+      --accent-light: #d3bfff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      background: radial-gradient(ellipse at 50% 0, #29234e 0, var(--background) 54rem);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    .site-header {
+      display: flex;
+      width: min(1120px, calc(100% - 40px));
+      min-height: 88px;
+      margin: 0 auto;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand { display: inline-flex; align-items: center; }
+    .brand img { display: block; width: 176px; max-height: 58px; object-fit: contain; }
+
+    .navigation {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .navigation a {
+      padding: 9px 13px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: .95rem;
+      text-decoration: none;
+      transition: background-color .2s ease, color .2s ease;
+    }
+
+    .navigation a:hover, .navigation a:focus-visible, .navigation a[aria-current="page"] {
+      background: rgb(170 133 255 / 14%);
+      color: var(--text);
+    }
+
+    .navigation a:focus-visible, .button:focus-visible, .portfolio-card:focus-visible {
+      outline: 3px solid var(--accent-light);
+      outline-offset: 3px;
+    }
+
+    main {
+      display: grid;
+      min-height: calc(100vh - 174px);
+      place-items: center;
+      padding: 64px 20px 76px;
+    }
+
+    .about-card {
+      width: min(760px, 100%);
+      padding: clamp(30px, 7vw, 64px);
+      border: 1px solid rgb(211 191 255 / 16%);
+      border-radius: 28px;
+      background: linear-gradient(145deg, rgb(34 33 67 / 96%), rgb(23 24 48 / 96%));
+      box-shadow: 0 24px 80px rgb(0 0 0 / 28%);
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--accent-light);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1 { margin: 0; font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 1.08; }
+
+    .about-copy {
+      max-width: 550px;
+      margin: 22px auto 30px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #171128;
+      font-weight: 750;
+      text-decoration: none;
+      transition: transform .2s ease, background-color .2s ease;
+    }
+
+    .button:hover { transform: translateY(-2px); background: var(--accent-light); }
+
+    .site-footer {
+      display: flex;
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 0 0 24px;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .portfolio-card {
+      display: flex;
+      width: fit-content;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .portfolio-card img {
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgb(255 255 255 / 15%);
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .copyright { margin: 0; color: var(--muted); font-size: .88rem; text-align: right; }
+
+    @media (max-width: 650px) {
+      .site-header { width: min(100% - 32px, 520px); padding: 16px 0; flex-direction: column; gap: 10px; }
+      .brand img { width: 150px; }
+      .navigation { justify-content: center; gap: 2px; }
+      .navigation a { padding: 8px 10px; font-size: .87rem; }
+      main { min-height: auto; padding: 40px 16px 56px; }
+      .site-footer { width: min(100% - 32px, 520px); align-items: center; flex-direction: column; padding-bottom: 20px; }
+      .copyright { text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="https://logoremakefourwtl.github.io" aria-label="LogoRemakeFour home">
+      <img src="https://logoremakefourwtl.github.io/lrfeditor/logo.png" alt="LogoRemakeFour">
+    </a>
+    <nav class="navigation" aria-label="Main navigation">
+      <a href="https://logoremakefourwtl.github.io">Home</a>
+      <a href="https://logoremakefourwtl.github.io/about" aria-current="page">About</a>
+      <a href="https://logoremakefourwtl.github.io/mediacenter">Media Center</a>
+      <a href="https://grid.asterics.eu/#grid">AsTeRICS Grid</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="about-card" aria-labelledby="about-title">
+      <p class="eyebrow">LogoRemakeFour</p>
+      <h1 id="about-title">About</h1>
+      <p class="about-copy">The repository the want to GitHub to Run Editing or Creating</p>
+      <a class="button" href="https://github.com/logoremakefourwtl/logoremakefourwtl.github.io" target="_blank" rel="noopener noreferrer">LogoRemakeFour on GitHub</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="portfolio-card" href="https://logoremakefourwtl.github.io/about" aria-label="About LogoRemakeFour">
+      <img src="https://logoremakefour8.github.io/lrfeditor/img/50%20Coins.png" alt="">
+      <span>About</span>
+    </a>
+    <p class="copyright">©2026 LogoRemakeFour. All Rights Reserved</p>
+  </footer>
+</body>
+</html>

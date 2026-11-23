@@ -3,38 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#111827">
-  <meta name="description" content="Explore Wikipedia, discover media, and contact LogoRemakeFour.">
-  <title>LogoRemakeFour — Home</title>
-
-  <!-- International phone input: country list, dialing codes, and flag icons. -->
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/css/intlTelInput.css">
+  <title>LogoRemakeFour</title>
+  <meta name="description" content="Hello, LogoRemakeFour!">
+  <meta name="google-site-verification" content="UCiYLS_dQpqJmhLEhelnBHew">
+  <link rel="canonical" href="https://logoremakefourwtl.github.io">
+  <link rel="icon" href="https://logoremakefourwtl.github.io/lrfeditor/favicon.png">
+  <link rel="shortcut icon" href="https://logoremakefourwtl.github.io/lrfeditor/favicon.png">
+  <link rel="apple-touch-icon" href="https://logoremakefourwtl.github.io/lrfeditor/apple-touch-icon.png">
 
   <style>
     :root {
       color-scheme: light;
-      --ink: #172033;
-      --muted: #64748b;
-      --brand: #5b4bdb;
-      --brand-dark: #4334b8;
+      --ink: #20243a;
+      --muted: #687087;
+      --brand: #5b52db;
+      --brand-dark: #433bb6;
+      --line: #e6e8f0;
       --surface: #fff;
-      --page: #f5f7fb;
-      --line: #e2e8f0;
+      --background: #f7f8fc;
       --radius: 18px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { margin: 0; color: var(--ink); background: var(--page); line-height: 1.6; }
+    body { margin: 0; color: var(--ink); background: var(--background); line-height: 1.6; }
     a { color: inherit; }
+    img { max-width: 100%; }
     button, input, select, textarea { font: inherit; }
-    button, .button { cursor: pointer; }
-    .wrap { width: min(1120px, calc(100% - 36px)); margin-inline: auto; }
 
-    header {
+    .container { width: min(1120px, calc(100% - 36px)); margin-inline: auto; }
+    .site-header {
       position: sticky;
       top: 0;
       z-index: 10;
@@ -42,546 +41,561 @@
       border-bottom: 1px solid var(--line);
       backdrop-filter: blur(12px);
     }
-
-    .nav {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      font-weight: 800;
-      letter-spacing: -.03em;
-    }
-
-    .brand img { width: 46px; height: 46px; object-fit: contain; }
-    .nav-links { display: flex; flex-wrap: wrap; gap: 22px; align-items: center; }
-    .nav-links a { text-decoration: none; font-weight: 650; color: #475569; }
-    .nav-links a:hover, .nav-links a:focus-visible { color: var(--brand); }
+    .nav-row { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; font-weight: 800; font-size: 1.1rem; }
+    .brand img { width: 44px; height: 44px; object-fit: contain; border-radius: 12px; }
+    nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px; }
+    nav a { text-decoration: none; padding: 9px 13px; border-radius: 10px; font-size: .94rem; font-weight: 650; }
+    nav a:hover, nav a:focus-visible { color: var(--brand); background: #f0efff; }
 
     .hero {
-      padding: 82px 0 74px;
-      color: white;
-      background:
-        radial-gradient(circle at 85% 15%, rgb(255 255 255 / 18%), transparent 25%),
-        linear-gradient(125deg, #34268f, #6655e8 58%, #9a7cff);
+      padding: 78px 0 62px;
+      color: #fff;
+      background: radial-gradient(circle at 85% 20%, #8b81ff 0, transparent 30%),
+                  linear-gradient(125deg, #302a83, #5b52db 60%, #796fe8);
     }
-
-    .hero-inner { max-width: 760px; }
-    .eyebrow { font-size: .82rem; text-transform: uppercase; letter-spacing: .14em; opacity: .8; }
-    h1 { font-size: clamp(2.5rem, 7vw, 4.7rem); line-height: 1.04; margin: 12px 0 18px; letter-spacing: -.055em; }
-    .hero p { max-width: 640px; color: #eeeaff; font-size: 1.1rem; }
+    .hero-inner { display: grid; grid-template-columns: 1.4fr .6fr; align-items: center; gap: 42px; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: .75rem; font-weight: 800; opacity: .8; }
+    h1 { font-size: clamp(2.5rem, 6vw, 4.7rem); line-height: 1.04; letter-spacing: -.045em; margin: 14px 0; }
+    .hero p { max-width: 620px; font-size: 1.12rem; color: #eeedff; }
+    .hero-art { display: grid; place-items: center; min-height: 220px; }
+    .hero-art img { width: min(220px, 70%); filter: drop-shadow(0 18px 30px rgb(0 0 0 / 25%)); }
     .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 0;
-      border-radius: 12px;
-      padding: 12px 18px;
-      color: white;
-      background: var(--brand);
-      text-decoration: none;
-      font-weight: 750;
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      border: 0; border-radius: 12px; padding: 12px 18px; text-decoration: none;
+      color: white; background: var(--brand); font-weight: 750; cursor: pointer;
       transition: transform .18s ease, background .18s ease;
     }
     .button:hover { background: var(--brand-dark); transform: translateY(-2px); }
-    .button-light { color: var(--brand-dark); background: white; margin-top: 12px; }
-    .button-light:hover { color: white; background: #30227f; }
+    .button-light { color: var(--brand-dark); background: white; }
+    .button-light:hover { color: white; background: var(--brand-dark); }
 
-    main { padding: 42px 0 70px; }
-    section { scroll-margin-top: 100px; }
-    .section-heading { margin-bottom: 20px; }
-    .section-heading h2 { margin: 0 0 5px; font-size: clamp(1.7rem, 4vw, 2.3rem); letter-spacing: -.035em; }
-    .section-heading p { color: var(--muted); margin: 0; }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: clamp(20px, 4vw, 30px);
-      box-shadow: 0 10px 30px rgb(15 23 42 / 4%);
+    main { padding: 44px 0 72px; }
+    section { scroll-margin-top: 96px; }
+    .section-heading { margin-bottom: 22px; }
+    .section-heading h2 { margin: 0 0 6px; font-size: clamp(1.7rem, 4vw, 2.3rem); letter-spacing: -.03em; }
+    .section-heading p { margin: 0; color: var(--muted); }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; box-shadow: 0 8px 26px rgb(32 36 58 / 4%); }
+    .wiki-layout { display: grid; grid-template-columns: 1.1fr .9fr; gap: 22px; }
+    .field { display: grid; gap: 7px; margin-bottom: 15px; }
+    .field label { font-size: .9rem; font-weight: 700; }
+    input, select, textarea {
+      width: 100%; min-width: 0; padding: 12px 13px; color: var(--ink);
+      background: white; border: 1px solid #d9dce7; border-radius: 10px;
     }
-    .wiki-section, .contact-section, .location-section, .portfolio-section { margin-top: 44px; }
-    .search-row { display: grid; grid-template-columns: 1fr auto; gap: 10px; }
-    .field, select, textarea {
-      width: 100%;
-      border: 1px solid #cbd5e1;
-      border-radius: 10px;
-      padding: 12px 13px;
-      color: var(--ink);
-      background: white;
+    input:focus, select:focus, textarea:focus { outline: 3px solid rgb(91 82 219 / 18%); border-color: var(--brand); }
+    textarea { min-height: 130px; resize: vertical; }
+    .inline-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hint { margin: 0; color: var(--muted); font-size: .86rem; }
+    .suggestions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 13px; }
+    .suggestion {
+      border: 1px solid var(--line); border-radius: 999px; padding: 7px 11px;
+      background: #fafaff; color: var(--ink); cursor: pointer; font-size: .85rem;
     }
-    .field:focus, select:focus, textarea:focus {
-      outline: 3px solid rgb(91 75 219 / 18%);
-      border-color: var(--brand);
+    .suggestion:hover { border-color: var(--brand); color: var(--brand); }
+    .result-list { display: grid; gap: 10px; margin-top: 16px; }
+    .result-button {
+      width: 100%; text-align: left; padding: 12px 14px; border: 1px solid var(--line);
+      border-radius: 12px; background: white; cursor: pointer;
     }
-    .search-controls {
-      display: grid;
-      grid-template-columns: minmax(190px, 260px) 1fr;
-      gap: 14px;
-      margin-bottom: 14px;
-    }
-    .suggestions { color: var(--muted); font-size: .92rem; margin-top: 10px; min-height: 26px; }
-    .suggestions button {
-      border: 0; background: none; color: var(--brand-dark); padding: 2px 6px;
-      text-decoration: underline; text-underline-offset: 3px;
-    }
-    .wiki-result { margin-top: 22px; }
-    .wiki-result[hidden] { display: none; }
-    .wiki-result-inner { display: grid; grid-template-columns: 200px 1fr; gap: 22px; }
-    .wiki-image { width: 100%; max-height: 230px; object-fit: cover; border-radius: 12px; background: #eef2ff; }
-    .wiki-image:empty { display: none; }
-    .wiki-result h3 { margin: 0 0 8px; font-size: 1.5rem; }
-    .wiki-result p { color: #475569; }
-    .wiki-meta { display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--muted); font-size: .9rem; }
-    .wiki-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
-    .text-link { color: var(--brand-dark); font-weight: 700; }
-    .wiki-result.motion-fast { animation: rise .35s ease-out; }
-    .wiki-result.motion-slow { animation: rise 1.4s ease-out; }
-    @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-
-    .wiki-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
-    .wiki-grid h3 { margin: 0 0 10px; }
-    .wiki-grid ul { margin: 0; padding-left: 20px; }
-    .wiki-grid li + li { margin-top: 6px; }
-    .wiki-grid a { color: var(--brand-dark); }
-
-    .portfolio-card {
-      display: grid;
-      grid-template-columns: 170px 1fr;
-      align-items: center;
-      gap: 24px;
-    }
-    .portfolio-card img { width: 100%; max-height: 170px; object-fit: contain; border-radius: 12px; }
-    .portfolio-card h3 { margin: 0 0 6px; font-size: 1.4rem; }
-    .portfolio-card p { color: var(--muted); margin: 0 0 14px; }
-
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-    .form-field label { display: block; font-weight: 700; margin-bottom: 6px; }
-    .form-field.full { grid-column: 1 / -1; }
-    textarea { min-height: 135px; resize: vertical; }
-    .iti { width: 100%; }
-    .captcha-note {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      padding: 14px;
-      border: 1px solid #fecaca;
-      border-radius: 12px;
-      background: #fff7f7;
-      color: #7f1d1d;
-      font-size: .92rem;
-    }
-    .captcha-note strong { display: block; }
-    .captcha-status { white-space: nowrap; font-weight: 800; }
-    .form-actions { margin-top: 18px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-    #form-message { color: var(--muted); margin: 0; }
-
-    .social-link { display: inline-flex; gap: 9px; align-items: center; text-decoration: none; font-weight: 750; }
-    .social-link img { width: 28px; height: 28px; }
-    .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: stretch; }
+    .result-button:hover { border-color: var(--brand); }
+    .result-button strong { display: block; }
+    .result-button span { display: block; margin-top: 3px; color: var(--muted); font-size: .86rem; }
+    .wiki-article { margin-top: 18px; }
+    .wiki-media { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start; }
+    .wiki-media img { width: 110px; max-height: 150px; object-fit: cover; border-radius: 10px; }
+    .wiki-media h3 { margin: 0 0 8px; }
+    .wiki-media p { margin: 0; color: var(--muted); }
+    .article-link { display: inline-block; margin-top: 12px; color: var(--brand); font-weight: 700; }
+    .status { min-height: 1.5em; color: var(--muted); font-size: .9rem; }
+    .ticker { overflow: hidden; white-space: nowrap; border-radius: 10px; background: #f1f0ff; padding: 11px 0; }
+    .ticker span { display: inline-block; padding-left: 100%; animation: ticker 26s linear infinite; }
+    .ticker.slow span { animation-duration: 55s; }
+    .ticker.fast span { animation-duration: 12s; }
+    @keyframes ticker { to { transform: translateX(-100%); } }
+    .trending-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 20px; padding-left: 22px; }
+    .trending-list a { color: var(--brand-dark); }
+    .section-gap { margin-top: 48px; }
+    .portfolio-card { display: grid; grid-template-columns: 170px 1fr; align-items: center; gap: 24px; }
+    .portfolio-card img { width: 170px; aspect-ratio: 1; object-fit: contain; border-radius: 14px; background: #f4f4f7; }
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .captcha-demo { display: flex; align-items: center; gap: 12px; padding: 15px; border: 1px solid var(--line); border-radius: 10px; background: #fafafa; }
+    .captcha-box { width: 25px; height: 25px; border: 2px solid #aeb3c0; border-radius: 4px; background: white; flex: 0 0 auto; }
+    .captcha-demo small { display: block; color: var(--muted); }
+    .captcha-status { margin-left: auto; color: #a23c32; font-size: .76rem; font-weight: 700; text-align: right; }
+    .phone-row { display: grid; grid-template-columns: 72px 1fr; gap: 9px; }
+    .country-flag { width: 34px; height: 23px; object-fit: cover; vertical-align: middle; border: 1px solid var(--line); }
     .map-frame { width: 100%; min-height: 310px; border: 0; border-radius: 14px; }
-    address { color: var(--muted); font-style: normal; }
-    footer { padding: 24px 0; color: #cbd5e1; background: #111827; text-align: center; }
+    .social-links { display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0; }
+    .social-links a { display: inline-flex; align-items: center; gap: 9px; padding: 9px 13px; border: 1px solid var(--line); border-radius: 12px; text-decoration: none; font-weight: 700; }
+    .social-links img { width: 27px; height: 27px; object-fit: contain; }
+    footer { padding: 24px 0; color: #e8e7ff; background: #25234d; }
+    footer .container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
     footer a { color: white; }
-    .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; margin-bottom: 8px; }
-    .footer-nav a { text-decoration: none; }
+    .form-message { margin: 12px 0 0; font-weight: 650; }
+    .error { color: #a23c32; }
+    .success { color: #227344; }
 
-    @media (max-width: 700px) {
-      .nav { align-items: flex-start; flex-direction: column; padding: 14px 0; gap: 12px; }
-      .nav-links { gap: 12px 17px; }
-      .hero { padding: 60px 0; }
-      .search-row, .search-controls, .wiki-result-inner, .wiki-grid,
-      .portfolio-card, .contact-grid, .location-grid { grid-template-columns: 1fr; }
-      .wiki-image { max-width: 240px; }
-      .form-field.full { grid-column: auto; }
-      .portfolio-card img { max-width: 180px; }
+    @media (max-width: 760px) {
+      .nav-row { align-items: flex-start; flex-direction: column; padding: 12px 0; }
+      nav { justify-content: flex-start; }
+      .hero-inner, .wiki-layout, .contact-layout { grid-template-columns: 1fr; }
+      .hero { padding: 54px 0; }
+      .hero-art { min-height: 130px; }
+      .hero-art img { width: 130px; }
     }
-
+    @media (max-width: 480px) {
+      .inline-fields, .portfolio-card { grid-template-columns: 1fr; }
+      .portfolio-card img { width: 140px; }
+      .trending-list { grid-template-columns: 1fr; }
+      .card { padding: 18px; }
+    }
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; }
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
     }
   </style>
 </head>
-
 <body>
-  <header>
-    <div class="wrap nav">
-      <a class="brand" href="https://logoremakefourwtl.github.io" aria-label="LogoRemakeFour home">
+  <header class="site-header">
+    <div class="container nav-row">
+      <a class="brand" href="https://logoremakefourwtl.github.io" aria-label="LogoRemakeFour Home">
         <img src="https://logoremakefourwtl.github.io/lrfeditor/logo.png" alt="LogoRemakeFour logo">
         <span>LogoRemakeFour</span>
       </a>
-      <nav class="nav-links" aria-label="Main navigation">
+      <nav aria-label="Main navigation">
         <a href="https://logoremakefourwtl.github.io">Home</a>
         <a href="https://logoremakefourwtl.github.io/about">About</a>
         <a href="https://logoremakefourwtl.github.io/mediacenter">Media Center</a>
-        <a href="https://grid.asterics.eu/#grid">AsTeRICS Grid / AAC</a>
+        <a href="https://grid.asterics.eu/#grid">AsTeRICS Grid / Asterics AAC</a>
       </nav>
     </div>
   </header>
 
   <section class="hero">
-    <div class="wrap hero-inner">
-      <div class="eyebrow">Welcome to LogoRemakeFour</div>
-      <h1>Explore, learn, and create.</h1>
-      <p>Discover Wikipedia articles, visit the media center, or get in touch with LogoRemakeFour.</p>
-      <a class="button button-light" href="#wikipedia">Explore Wikipedia</a>
+    <div class="container hero-inner">
+      <div>
+        <div class="eyebrow">Welcome</div>
+        <h1>Hello,<br>LogoRemakeFour!</h1>
+        <p>Discover, search, and explore Wikipedia—or get in touch with LogoRemakeFour.</p>
+        <a class="button button-light" href="https://www.example.com">Click to example Lorem Ipsum</a>
+      </div>
+      <div class="hero-art">
+        <img src="https://logoremakefourwtl.github.io/lrfeditor/logo.png" alt="LogoRemakeFour">
+      </div>
     </div>
   </section>
 
-  <main class="wrap">
-    <section id="wikipedia" class="wiki-section">
+  <main class="container">
+    <section id="wikipedia">
       <div class="section-heading">
-        <h2>Wikipedia Explorer</h2>
-        <p>Search Wikipedia or enter an article URL to preview its title, image, and information.</p>
+        <h2>Explore Wikipedia</h2>
+        <p>Search for an article or enter a Wikipedia page URL.</p>
       </div>
 
-      <div class="card">
-        <div class="search-controls">
-          <div>
-            <label for="wiki-language"><strong>Language</strong></label>
-            <select id="wiki-language">
-              <option value="en">English</option>
-              <option value="es">Spanish (Español)</option>
-              <option value="pt">Portuguese (Português)</option>
-                            <option value="pt">Portuguese (Português)</option>
-              <option value="ru">Russian Federation (Русский)</option>
-              <option value="de">German Deutschland (Deutsch)</option>
-            </select>
-          </div>
-          <div>
-            <label for="motion-speed"><strong>Article motion</strong></label>
-            <select id="motion-speed">
-              <option value="slow">Slow Wikipedia motion</option>
-              <option value="fast">Fast Wikipedia motion</option>
-            </select>
-          </div>
-        </div>
-
-        <form id="wiki-form">
-          <label for="wiki-query"><strong>Search Wikipedia or enter an article URL</strong></label>
-          <div class="search-row">
-            <input class="field" id="wiki-query" name="query" type="search"
-                   placeholder="Try “Nature” or paste a Wikipedia URL" autocomplete="off" required>
-            <button class="button" type="submit">Search</button>
-          </div>
-        </form>
-        <div id="wiki-suggestions" class="suggestions" aria-live="polite">
-          Suggested queries:
-          <button type="button" data-query="Science">Science</button>
-          <button type="button" data-query="Art">Art</button>
-          <button type="button" data-query="Los Angeles">Los Angeles</button>
-        </div>
-        <p id="wiki-error" role="status" hidden></p>
-
-        <article id="wiki-result" class="wiki-result card" aria-live="polite" hidden>
-          <div class="wiki-result-inner">
-            <img class="wiki-image" id="wiki-image" alt="">
-            <div>
-              <h3 id="wiki-title"></h3>
-              <div class="wiki-meta">
-                <span id="wiki-date"></span>
-                <span id="wiki-time"></span>
-                <span id="wiki-logo-label">Logo: Wikipedia</span>
-              </div>
-              <p id="wiki-information"></p>
-              <p id="wiki-about"></p>
-              <div class="wiki-links">
-                <a class="text-link" id="wiki-article-link" target="_blank" rel="noopener">Open article</a>
-                <a class="text-link" id="wiki-poster-link" target="_blank" rel="noopener">Image / poster</a>
-                <a class="text-link" id="wiki-logo-link" href="https://www.wikipedia.org/" target="_blank" rel="noopener">Wikipedia logo</a>
-              </div>
+      <div class="wiki-layout">
+        <div class="card">
+          <div class="inline-fields">
+            <div class="field">
+              <label for="wiki-language">Language</label>
+              <select id="wiki-language">
+                <option value="en">English</option>
+                <option value="es">Spanish (Español)</option>
+                <option value="pt">Portuguese (Português)</option>
+                <option value="ru">Russian Federation (Русский)</option>
+                <option value="de">German Deutschland (Deutsch)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="wiki-motion">Information motion</label>
+              <select id="wiki-motion">
+                <option value="fast">Fast Wikipedia motion</option>
+                <option value="slow">Slow Wikipedia motion</option>
+              </select>
             </div>
           </div>
-        </article>
 
-        <div class="wiki-grid">
-          <div class="card">
-            <h3>Recommended Wiki</h3>
-            <ul>
-              <li><a href="https://en.wikipedia.org/wiki/Science">Science</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Art">Art</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Los_Angeles">Los Angeles</a></li>
-            </ul>
+          <form id="wiki-form">
+            <div class="field">
+              <label for="wiki-query">Wikipedia title, search, or URL</label>
+              <input id="wiki-query" type="search" placeholder="For example: Logo or https://en.wikipedia.org/wiki/Logo" autocomplete="off">
+            </div>
+            <button class="button" type="submit">Search Wikipedia</button>
+          </form>
+          <p id="wiki-status" class="status" role="status" aria-live="polite"></p>
+
+          <div>
+            <strong>Suggested queries</strong>
+            <div class="suggestions" id="suggestions">
+              <button class="suggestion" type="button">Wikipedia</button>
+              <button class="suggestion" type="button">Los Angeles</button>
+              <button class="suggestion" type="button">Graphic design</button>
+              <button class="suggestion" type="button">Accessible communication</button>
+            </div>
           </div>
-          <div class="card">
-            <h3>Trending Wiki</h3>
-            <ul>
-              <li><a href="https://en.wikipedia.org/wiki/Technology">Technology</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Climate_change">Climate change</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Artificial_intelligence">Artificial intelligence</a></li>
-            </ul>
+          <div id="search-results" class="result-list" aria-live="polite"></div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0">Wikipedia information</h3>
+          <div id="wiki-article" class="wiki-article">
+            <p class="hint">Search for a topic to see its image, poster or logo, title, and information here.</p>
           </div>
+          <p class="hint" style="margin-top:18px">
+            URL format:
+            <code>https://[LANG].wikipedia.org/wiki/[WIKI_NAME]</code>
+          </p>
         </div>
       </div>
     </section>
 
-    <section class="portfolio-section" id="portfolio">
+    <section class="section-gap">
       <div class="section-heading">
-        <h2>Portfolio</h2>
-        <p>A featured example from LogoRemakeFour.</p>
+        <h2>Wikipedia motion</h2>
+        <p>Choose fast or slow motion above. The date and time update automatically.</p>
       </div>
+      <div class="card">
+        <p><strong>Date:</strong> <span id="current-date">—</span> &nbsp; <strong>Time:</strong> <span id="current-time">—</span></p>
+        <div id="wiki-ticker" class="ticker fast">
+          <span>Wikipedia • Knowledge • Discover something new • LogoRemakeFour</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-gap">
+      <div class="section-heading">
+        <h2>Recommended and trending Wiki</h2>
+        <p>Popular Wikipedia pages from yesterday, with a few suggested topics as fallback.</p>
+      </div>
+      <div class="card">
+        <ol id="trending-list" class="trending-list">
+          <li><a href="https://en.wikipedia.org/wiki/Main_Page">Wikipedia Main Page</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Los_Angeles">Los Angeles</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Graphic_design">Graphic design</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Accessible_communication">Accessible communication</a></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section-gap">
+      <div class="section-heading"><h2>Portfolio</h2></div>
       <div class="card portfolio-card">
-        <img src="https://logoremakefour8.github.io/lrfeditor/img/50%20Coins.png"
-             alt="50 Coins portfolio example">
+        <img src="https://logoremakefour8.github.io/lrfeditor/img/50%20Coins.png" alt="50 Coins portfolio artwork">
         <div>
           <h3>Example Lorem Ipsum</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Explore this example project.</p>
-          <a class="button" href="https://www.example.com" target="_blank" rel="noopener">
-            Click to example Lorem Ipsum
-          </a>
+          <p>A portfolio example from LogoRemakeFour.</p>
+          <a class="button" href="https://www.example.com">Click to example Lorem Ipsum</a>
         </div>
       </div>
     </section>
 
-    <section class="contact-section" id="contact">
+    <section class="section-gap" id="contact">
       <div class="section-heading">
         <h2>Contact Us</h2>
-        <p>Send a message to the LogoRemakeFour team.</p>
+        <p>Send a message or chat with LogoRemakeFour on WhatsApp.</p>
       </div>
 
-      <form class="card" id="contact-form">
-        <div class="contact-grid">
-          <div class="form-field">
+      <div class="contact-layout">
+        <form class="card" id="contact-form">
+          <div class="field">
             <label for="contact-name">Name</label>
-            <input class="field" id="contact-name" name="name" autocomplete="name" required>
+            <input id="contact-name" name="name" autocomplete="name" required>
           </div>
-          <div class="form-field">
+          <div class="field">
             <label for="contact-email">Email</label>
-            <input class="field" id="contact-email" name="email" type="email"
-                   autocomplete="email" required>
+            <input id="contact-email" name="email" type="email" autocomplete="email" required>
           </div>
-          <div class="form-field full">
+          <div class="field">
             <label for="contact-phone">Phone Number</label>
-            <input class="field" id="contact-phone" name="phone" type="tel"
-                   autocomplete="tel" placeholder="Choose a country and enter a number">
+            <div class="phone-row">
+              <img id="country-flag" class="country-flag" src="https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_United_States.svg" alt="United States flag">
+              <div>
+                <select id="country-code" aria-label="Country calling code">
+                  <option value="+1" data-flag="Flag_of_the_United_States.svg">🇺🇸 +1</option>
+                  <option value="+44" data-flag="Flag_of_the_United_Kingdom.svg">🇬🇧 +44</option>
+                  <option value="+34" data-flag="Flag_of_Spain.svg">🇪🇸 +34</option>
+                  <option value="+55" data-flag="Flag_of_Brazil.svg">🇧🇷 +55</option>
+                  <option value="+7" data-flag="Flag_of_Russia.svg">🇷🇺 +7</option>
+                  <option value="+49" data-flag="Flag_of_Germany.svg">🇩🇪 +49</option>
+                  <option value="+33" data-flag="Flag_of_France.svg">🇫🇷 +33</option>
+                  <option value="+91" data-flag="Flag_of_India.svg">🇮🇳 +91</option>
+                  <option value="+61" data-flag="Flag_of_Australia.svg">🇦🇺 +61</option>
+                  <option value="+81" data-flag="Flag_of_Japan.svg">🇯🇵 +81</option>
+                </select>
+              </div>
+            </div>
+            <input id="contact-phone" name="phone" type="tel" autocomplete="tel-national" placeholder="Phone number" required>
           </div>
-          <div class="form-field full">
+          <div class="field">
             <label for="contact-message">Message</label>
             <textarea id="contact-message" name="message" required></textarea>
           </div>
-          <div class="form-field full">
-            <div class="captcha-note" role="note">
-              <span class="captcha-status">⚠️</span>
-              <div>
-                <strong>reCAPTCHA demo — Invalid Site Key</strong>
-                “Completed Good 👍✅” is shown as a requested demo status only. This is not a valid
-                CAPTCHA verification and must not be used to protect a live form. Replace the
-                placeholder with a valid reCAPTCHA site key and verify the response on your server.
-              </div>
+
+          <div class="field">
+            <span class="field label">Verification reCAPTCHA</span>
+            <div class="captcha-demo" aria-label="Demo reCAPTCHA placeholder">
+              <span class="captcha-box" aria-hidden="true"></span>
+              <span>I'm not a robot <small>Demo placeholder only</small></span>
+              <span class="captcha-status">Invalid site key<br>Setup complete 👍✅</span>
+            </div>
+            <p class="hint">This placeholder does not verify users. Configure a valid reCAPTCHA site key and a server-side form endpoint before accepting submissions.</p>
+          </div>
+          <button class="button" type="submit">Send</button>
+          <p id="contact-status" class="form-message" role="status" aria-live="polite"></p>
+        </form>
+
+        <div>
+          <div class="card">
+            <h3 style="margin-top:0">Chat with WhatsApp</h3>
+            <div class="social-links">
+              <a href="https://wa.me/+447472137407?text=Hello%2C%20LogoRemakeFour%21" target="_blank" rel="noopener noreferrer">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/WhatsApp.svg" alt="">
+                Chat with WhatsApp
+              </a>
+              <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Unsplash_wordmark.svg" alt="">
+                Unsplash
+              </a>
+              <a href="https://www.pexels.com" target="_blank" rel="noopener noreferrer">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pexels_logo.svg" alt="">
+                Pexels
+              </a>
             </div>
           </div>
-        </div>
-        <div class="form-actions">
-          <button class="button" type="submit">Send</button>
-          <p id="form-message" role="status">Demo form only — no message is sent to a server.</p>
-        </div>
-      </form>
-    </section>
-
-    <section class="location-section" id="location">
-      <div class="section-heading">
-        <h2>Location</h2>
-        <p>Find us at 2110 South Los Angeles Street, Los Angeles, CA 90011, USA.</p>
-      </div>
-      <div class="location-grid">
-        <iframe class="map-frame"
-          title="Google Maps map showing 2110 South Los Angeles Street, Los Angeles"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=2110%20South%20Los%20Angeles%20Street%2C%20Los%20Angeles%2C%20CA%2090011%2C%20USA&output=embed">
-        </iframe>
-        <div class="card">
-          <h3>How to arrive</h3>
-          <address>2110 South Los Angeles Street,<br>Los Angeles, CA 90011, USA</address>
-          <p>Open directions in Google Maps:</p>
-          <a class="button"
-             href="https://www.google.com/maps/dir/?api=1&destination=2110%20South%20Los%20Angeles%20Street%2C%20Los%20Angeles%2C%20CA%2090011%2C%20USA"
-             target="_blank" rel="noopener">Get directions</a>
-          <hr style="border:0;border-top:1px solid var(--line);margin:22px 0">
-          <a class="social-link"
-             href="https://wa.me/+447472137407?text=Hello%2C%20LogoRemakeFour%21"
-             target="_blank" rel="noopener">
-            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/WhatsApp.svg"
-                 alt="" loading="lazy">
-            Chat with WhatsApp
-          </a>
-          <p style="color:var(--muted);font-size:.92rem;margin-bottom:0">
-            Photo resources: <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a>
-            and <a href="https://www.pexels.com/" target="_blank" rel="noopener">Pexels</a>.
-          </p>
+          <div class="card section-gap">
+            <h3 style="margin-top:0">Location</h3>
+            <p>2110 South Los Angeles Street, Los Angeles, CA 90011, USA</p>
+            <iframe
+              class="map-frame"
+              title="Google Maps location: 2110 South Los Angeles Street, Los Angeles, CA 90011, USA"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?q=2110%20South%20Los%20Angeles%20Street%2C%20Los%20Angeles%2C%20CA%2090011%2C%20USA&output=embed">
+            </iframe>
+            <p><a class="article-link" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/dir/?api=1&destination=2110+South+Los+Angeles+Street%2C+Los+Angeles%2C+CA+90011%2C+USA">How to arrive: Get directions</a></p>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <nav class="footer-nav" aria-label="Footer navigation">
-      <a href="https://logoremakefourwtl.github.io">Home</a>
-      <a href="https://logoremakefourwtl.github.io/about">About</a>
-      <a href="https://logoremakefourwtl.github.io/mediacenter">Media Center</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div>©2026 LogoRemakeFour. All Rights Reserved.</div>
+    <div class="container">
+      <span>©2026 LogoRemakeFour. All Rights Reserved.</span>
+      <a href="https://logoremakefourwtl.github.io">LogoRemakeFour Home</a>
+    </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/intlTelInput.min.js"></script>
   <script>
-    // The phone input library provides an international country list and flag icons.
-    const phoneInput = document.querySelector("#contact-phone");
-    if (window.intlTelInput) {
-      window.intlTelInput(phoneInput, {
-        initialCountry: "us",
-        nationalMode: false,
-        separateDialCode: true,
-        loadUtils: () => import(
-          "https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/utils.js"
-        )
-      });
+    const languageSelect = document.querySelector("#wiki-lanuage");
+    const queryInput = document.querySelector("#wiki-query");
+    const resultList = document.querySelector("#search-results");
+    const wikiStatus = document.querySelector("#wiki-status");
+    const articleContainer = document.querySelector("#wiki-article");
+
+    function wikiDomain() {
+      return `${languageSelect.value}.wikipedia.org`;
     }
 
-    const languageSelect = document.querySelector("#wiki-language");
-    const wikiForm = document.querySelector("#wiki-form");
-    const wikiQuery = document.querySelector("#wiki-query");
-    const suggestions = document.querySelector("#wiki-suggestions");
-    const result = document.querySelector("#wiki-result");
-    const error = document.querySelector("#wiki-error");
-
-    function wikiTitleFromInput(value) {
+    function getTitleFromInput(value) {
       const trimmed = value.trim();
-      if (/^https?:\/\//i.test(trimmed)) {
-        try {
+      if (!trimmed) return "";
+      try {
+        if (/^https?:\/\//i.test(trimmed)) {
           const url = new URL(trimmed);
           const match = url.pathname.match(/\/wiki\/(.+)/);
-          if (match) return decodeURIComponent(match[1].replace(/_/g, " "));
-        } catch (_) {
-          // Fall through and search the input as a query.
+          if (match) return decodeURIComponent(match[1].replaceAll("_", " "));
         }
+      } catch (_) {
+        // Treat invalid URL text as a regular Wikipedia search query.
       }
       return trimmed;
     }
 
+    function clearResults() {
+      resultList.replaceChildren();
+    }
+
     async function searchWikipedia(query) {
-      const language = languageSelect.value;
-      const title = wikiTitleFromInput(query);
-      error.hidden = true;
-      result.hidden = true;
-      suggestions.textContent = "Searching Wikipedia…";
+      const title = getTitleFromInput(query);
+      if (!title) {
+        wikiStatus.textContent = "Enter a Wikipedia title, search term, or page URL.";
+        return;
+      }
+
+      clearResults();
+      wikiStatus.textContent = "Searching Wikipedia…";
 
       try {
-        const endpoint = new URL(`https://${language}.wikipedia.org/w/api.php`);
+        const endpoint = new URL(`https://${wikiDomain()}/w/api.php`);
         endpoint.search = new URLSearchParams({
           action: "query",
+          list: "search",
+          srsearch: title,
+          srlimit: "5",
           format: "json",
-      origin: "*",
-          generator: "search",
-          gsrsearch: title,
-          gsrlimit: "1",
-          prop: "pageimages|extracts|info",
-          exintro: "1",
-          explaintext: "1",
-          exsentences: "4",
-          piprop: "thumbnail",
-          pithumbsize: "700",
-          inprop: "url"
+          origin: "*"
         });
 
         const response = await fetch(endpoint);
-        if (!response.ok) throw new Error("Wikipedia search is temporarily unavailable.");
+        if (!response.ok) throw new Error("Wikipedia search is currently unavailable.");
         const data = await response.json();
-        const page = data.query && data.query.pages
-          ? Object.values(data.query.pages)[0]
-          : null;
+        const results = data.query?.search || [];
 
-        if (!page) throw new Error("No matching article found. Try another search.");
+        if (!results.length) {
+          wikiStatus.textContent = "No matching pages found. Try another search.";
+          return;
+        }
 
-        const articleUrl = page.fullurl ||
-          `https://${language}.wikipedia.org/wiki/${encodeURIComponent(page.title.replace(/ /g, "_"))}`;
-        const image = document.querySelector("#wiki-image");
-        image.src = page.thumbnail ? page.thumbnail.source : "";
-        image.alt = page.thumbnail ? `Image for ${page.title}` : "";
-        image.hidden = !page.thumbnail;
+        wikiStatus.textContent = `Search results for “${title}”:`;
+        for (const result of results) {
+          const button = document.createElement("button");
+          button.className = "result-button";
+          button.type = "button";
 
-        document.querySelector("#wiki-title").textContent = page.title;
-        document.querySelector("#wiki-information").textContent =
-          page.extract || "No short information summary is available for this article.";
-        document.querySelector("#wiki-about").textContent =
-          `About: Read more about ${page.title} on Wikipedia.`;
-        document.querySelector("#wiki-article-link").href = articleUrl;
-        document.querySelector("#wiki-poster-link").href =
-          page.thumbnail ? page.thumbnail.source : articleUrl;
+            const heading = document.createElement("strong");
+          heading.textContent = result.title;
+          const snippet = document.createElement("span");
+          snippet.textContent = result.snippet.replace(/<[^>]*>/g, "");
 
-        const now = new Date();
-        document.querySelector("#wiki-date").textContent =
-          `Date: ${new Intl.DateTimeFormat().format(now)}`;
-        document.querySelector("#wiki-time").textContent =
-          `Time: ${new Intl.DateTimeFormat(undefined, { timeStyle: "short" }).format(now)}`;
+          button.append(heading, snippet);
+          button.addEventListener("click", () => loadArticle(result.title));
+          resultList.append(button);
+        }
 
-        result.classList.remove("motion-fast", "motion-slow");
-        result.classList.add(
-          document.querySelector("#motion-speed").value === "fast"
-            ? "motion-fast" : "motion-slow"
-        );
-        result.hidden = false;
-        suggestions.textContent = `Wikipedia article found in ${languageSelect.options[languageSelect.selectedIndex].text}.`;
-      } catch (e) {
-        suggestions.textContent = "Suggested queries: Science, Art, Los Angeles.";
-        error.textContent = e.message || "Could not load a Wikipedia result.";
-        error.hidden = false;
+        if (results.length === 1) loadArticle(results[0].title);
+      } catch (error) {
+        wikiStatus.textContent = `${error.message} You can also open Wikipedia directly.`;
       }
     }
 
-    wikiForm.addEventListener("submit", event => {
-      event.preventDefault();
-      searchWikipedia(wikiQuery.value);
-    });
+    async function loadArticle(title) {
+      articleContainer.replaceChildren();
+      const loading = document.createElement("p");
+      loading.className = "hint";
+      loading.textContent = "Loading article information…";
+      articleContainer.append(loading);
 
-    suggestions.addEventListener("click", event => {
-      const button = event.target.closest("button[data-query]");
-      if (!button) return;
-      wikiQuery.value = button.dataset.query;
-      searchWikipedia(button.dataset.query);
-    });
+      try {
+        const response = await fetch(`https://${wikiDomain()}/api/rest_v1/page/summary/${encodeURIComponent(title.replaceAll(" ", "_"))}`);
+        if (!response.ok) throw new Error("Article summary is unavailable.");
+        const page = await response.json();
 
-    let suggestionTimer;
-    wikiQuery.addEventListener("input", () => {
-      clearTimeout(suggestionTimer);
-      const query = wikiQuery.value.trim();
-      if (query.length < 3 || /^https?:\/\//i.test(query)) return;
+        articleContainer.replaceChildren();
+        const media = document.createElement("div");
+        media.className = "wiki-media";
 
-      suggestionTimer = setTimeout(async () => {
-        try {
-          const language = languageSelect.value;
-          const url = new URL(`https://${language}.wikipedia.org/w/api.php`);
-          url.search = new URLSearchParams({
-            action: "opensearch", format: "json", origin: "*", search: query, limit: "5"
-          });
-          const response = await fetch(url);
-          const data = await response.json();
-          const titles = data[1] || [];
-          suggestions.replaceChildren(document.createTextNode("Suggestions: "));
-          titles.forEach(title => {
-            const button = document.createElement("button");
-            button.type = "button";
-            button.dataset.query = title;
-            button.textContent = title;
-            suggestions.append(button);
-          });
-        } catch (_) {
-          // Suggestions are optional; the search form remains available.
+        if (page.thumbnail?.source) {
+          const image = document.createElement("img");
+          image.src = page.thumbnail.source;
+          image.alt = page.title ? `${page.title} image` : "Wikipedia article image";
+          media.append(image);
         }
-      }, 300);
+
+        const text = document.createElement("div");
+        const heading = document.createElement("h3");
+        heading.textContent = page.title || title;
+        const description = document.createElement("p");
+        description.textContent = page.extract || "No short description is available.";
+        text.append(heading, description);
+        media.append(text);
+        articleContainer.append(media);
+
+        const link = document.createElement("a");
+        link.className = "article-link";
+        link.href = page.content_urls?.desktop?.page || `https://${wikiDomain()}/wiki/${encodeURIComponent(title.replaceAll(" ", "_"))}`;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "Read on Wikipedia";
+        articleContainer.append(link);
+      } catch (error) {
+        articleContainer.replaceChildren();
+        const message = document.createElement("p");
+        message.className = "hint";
+        message.textContent = `${error.message} Try opening the article directly on Wikipedia.`;
+        articleContainer.append(message);
+      }
+    }
+
+    document.querySelector("#wiki-form").addEventListener("submit", event => {
+      event.preventDefault();
+      searchWikipedia(queryInput.value);
+    });
+
+    document.querySelector("#suggestions").addEventListener("click", event => {
+      const button = event.target.closest("button");
+      if (!button) return;
+      queryInput.value = button.textContent;
+      searchWikipedia(button.textContent);
+    });
+
+    languageSelect.addEventListener("change", () => {
+      if (queryInput.value.trim()) searchWikipedia(queryInput.value);
+    });
+
+    document.querySelector("#wiki-motion").addEventListener("change", event => {
+      const ticker = document.querySelector("#wiki-ticker");
+      ticker.classList.toggle("fast", event.target.value === "fast");
+      ticker.classList.toggle("slow", event.target.value === "slow");
+    });
+
+    function updateClock() {
+      const now = new Date();
+      document.querySelector("#current-date").textContent = now.toLocaleDateString(undefined, {
+        year: "numeric", month: "long", day: "numeric"
+      });
+      document.querySelector("#current-time").textContent = now.toLocaleTimeString();
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    async function loadTrending() {
+      const list = document.querySelector("#trending-list");
+      const yesterday = new Date(Date.now() - 86400000);
+      const yyyy = yesterday.getUTCFullYear();
+      const mm = String(yesterday.getUTCMonth() + 1).padStart(2, "0");
+      const dd = String(yesterday.getUTCDate()).padStart(2, "0");
+      const domain = wikiDomain();
+      const url = `https://${domain}/api/rest_v1/metrics/pageviews/top/${domain}/all-access/${yyyy}/${mm}/${dd}`;
+
+      try {
+        const response = await fetch(url);
+        if (!response.ok) return;
+        const data = await response.json();
+        const articles = data.items?.[0]?.articles
+          ?.filter(item => item.article && !item.article.startsWith("Special:"))
+          .slice(0, 8);
+        if (!articles?.length) return;
+
+        list.replaceChildren();
+        for (const item of articles) {
+          const li = document.createElement("li");
+          const link = document.createElement("a");
+          link.href = `https://${domain}/wiki/${encodeURIComponent(item.article)}`;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = item.article.replaceAll("_", " ");
+          li.append(link);
+          list.append(li);
+        }
+      } catch (_) {
+        // The curated links remain available if the Wikimedia API is unreachable.
+      }
+    }
+    loadTrending();
+    languageSelect.addEventListener("change", loadTrending);
+
+    document.querySelector("#country-code").addEventListener("change", event => {
+      const flagFile = event.target.selectedOptions[0].dataset.flag;
+      const flag = document.querySelector("#country-flag");
+      flag.src = `https://commons.wikimedia.org/wiki/Special:FilePath/${flagFile}`;
+      flag.alt = `${event.target.selectedOptions[0].textContent.trim()} flag`;
     });
 
     document.querySelector("#contact-form").addEventListener("submit", event => {
       event.preventDefault();
-      document.querySelector("#form-message").textContent =
-        "Demo only: the form is not connected to a server, so no message was sent.";
+      const status = document.querySelector("#contact-status");
+      status.className = "form-message error";
+      status.textContent = "This demo form is not connected to a submission service. Configure a backend and valid reCAPTCHA keys before sending messages.";
     });
   </script>
 </body>
